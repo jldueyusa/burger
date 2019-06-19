@@ -1,8 +1,7 @@
 //dependencies
-const express = require("express");
-const methodOverride = require("method-override");
-const bodyParser = require("body-parser");
-const exphbs = require("express-handlebars");
+var express = require("express");
+var bodyParser = require("body-parser");
+var exphbs = require("express-handlebars");
 
 var app = express();
 
