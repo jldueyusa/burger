@@ -9,6 +9,21 @@ function createQmarks(num) {
     return arr.toString();
 }
 
+//helper to translate the string to a readable sql query
+function translateSql(obj) {
+    var arr = [];
+    for (var key in ob) {
+        var value = ob[key];
+        if (Object.hasOwnProperty.call(ob, key)) {
+            if(typeof value === "string" && value.indexOf(" ") >= 0) {
+                value = "'" +value + "'";
+            }
+            arr.push(key + "=" + value) 
+        }
+    }
+    return arr.toString();
+}
+
 var orm = {
     selectALL: function (table, cb) {
         var dbQuery = "SELECT * FROM" + table + ";";
@@ -41,7 +56,7 @@ var orm = {
         "UPDATE " +
         table +
         " SET " +
-        translateSQL(objColVals)+
+        translateSql(objColVals)+
         " WHERE " +
         condition;
 
