@@ -35,5 +35,13 @@ var orm = {
         translateSQL(objColVals)+
         " WHERE " +
         condition;
+
+        console.log(dbQuery);
+        connection.query(dbQuery, function (err, res) {
+            if (err) {
+                throw err;
+            }
+            cb(res);
+        });
     }
 };
