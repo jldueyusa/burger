@@ -37,4 +37,17 @@ $(function(){
             location.reload();
         });
     });
+    
+    $(".trashburger").on("click", function(event) {
+        event.preventDefault();
+        
+        var id = $(this).data("id");
+
+        //create delete action
+        $.ajax({
+            type: "DELETE",
+            url: "/api/burgers/" + id
+        }).then(location.reload());
+
+    });
 });
