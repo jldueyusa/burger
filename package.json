@@ -4,7 +4,8 @@
   "description": "week 14 homework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,6 @@
     "method-override": "^3.0.0",
     "mysql": "^2.17.1",
     "nodemon": "^1.19.1"
-  }
+  },
+  "devDependencies": {}
 }
