@@ -18,6 +18,16 @@ $(function(){
         }).then(function(){
             console.log("Added new burger");
             location.reload();
-        })
+        });
     });
+    //add click event
+    $(".eatburger").on("click", function(event){
+        event.preventDefault();
+
+        var id = $(this).data("id");
+        var devouredState = {
+            //this click event sets devoured to true
+            devoured: 1
+        }
+    })
 });
