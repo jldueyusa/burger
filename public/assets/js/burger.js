@@ -28,6 +28,13 @@ $(function(){
         var devouredState = {
             //this click event sets devoured to true
             devoured: 1
-        }
-    })
+        };
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: devouredState
+        }).then(function() {
+            console.log("Burger devoured");
+            location.reload();
+        });
+    });
 });
