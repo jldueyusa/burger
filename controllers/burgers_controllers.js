@@ -13,7 +13,7 @@ router.get("/", function(req, res){
         console.log(hdbrsObj);
         res.render("index", hdbrsObj);
     });
-    //});
+    });
 
     router.post("/api/burgers", function(req, res){
         burger.insertOne(
@@ -38,17 +38,16 @@ router.put("/api/burgers/:id", function(req, res){
         }
     });
 });
-router.deleteOne(condition, function(req, res){
-    var condition = "id = " + req.params.id;
+router.delete("/api/burgers/:id", function(req, res) {
+    let condition = "id = " + req.params.id;
     console.log("condition", condition);
-
-    burger.deleteOne(condition, function(result){
-        if ((result, changeRows === 0)) {
-            return res.status(404).end();
-        } else {
-            res.status(200).end();
-        }
-    })
-})
-});
-module.exports = router;
+  
+    burger.deleteOne(condition, function(result) {
+      if (result.changedRows === 0) {
+        return res.status(404).end();
+      } else {
+        res.status(200).end();
+      }
+    });
+  });
+  module.exports = router;

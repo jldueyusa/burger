@@ -10,7 +10,7 @@ function createQmarks(num) {
 }
 
 //helper to translate the string to a readable sql query
-function translateSql(obj) {
+function translateSql(ob) {
     var arr = [];
     for (var key in ob) {
         var value = ob[key];
