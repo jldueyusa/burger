@@ -3,7 +3,7 @@ var connection = require("../config/connection");
 //helper functions
 function createQmarks(num) {
     var arr = [];
-    for(var i = 0; i < num; i++) {
+    for (var i = 0; i < num; i++) {
         arr.push("?");
     }
     return arr.toString();
@@ -15,10 +15,10 @@ function translateSql(obj) {
     for (var key in ob) {
         var value = ob[key];
         if (Object.hasOwnProperty.call(ob, key)) {
-            if(typeof value === "string" && value.indexOf(" ") >= 0) {
-                value = "'" +value + "'";
+            if (typeof value === "string" && value.indexOf(" ") >= 0) {
+                value = "'" + value + "'";
             }
-            arr.push(key + "=" + value) 
+            arr.push(key + "=" + value)
         }
     }
     return arr.toString();
@@ -33,16 +33,16 @@ var orm = {
             }
             cb(res);
         });
-    }
+    },
     // need to 'insert' function
     insertOne: function (table, cols, vals, cb) {
         var dbQuery = "INSERT INTO " +
-        table + 
-        " (" + 
-        cols.toString() + 
-        ") " + "VALUES (" + 
-        createQmarks(vals.length) + 
-        ") ";
+            table +
+            " (" +
+            cols.toString() +
+            ") " + "VALUES (" +
+            createQmarks(vals.length) +
+            ") ";
         console.log(dbQuery);
         connection.query(dbQuery, function (err, res) {
             if (err) {
@@ -50,15 +50,15 @@ var orm = {
             }
             cb(res);
         });
-    }
-    updateOne: function(table, objColVals, condition, cb){
-        var dbQuery = 
-        "UPDATE " +
-        table +
-        " SET " +
-        translateSql(objColVals)+
-        " WHERE " +
-        condition;
+    },
+    updateOne: function (table, objColVals, condition, cb) {
+        var dbQuery =
+            "UPDATE " +
+            table +
+            " SET " +
+            translateSql(objColVals) +
+            " WHERE " +
+            condition;
 
         console.log(dbQuery);
         connection.query(dbQuery, function (err, res) {
@@ -68,11 +68,11 @@ var orm = {
             cb(res);
         });
     },
-    deleteOne: function(table, condition, cb) {
+    deleteOne: function (table, condition, cb) {
         var dbQuery = "DELETE FROM " +
-        table +
-        " WHERE " +
-        condition;
+            table +
+            " WHERE " +
+            condition;
         console.log(dbQuery);
         connection.query(dbQuery, function (err, res) {
             if (err) {
@@ -82,3 +82,4 @@ var orm = {
         });
     }
 };
+module.exports = orm;
