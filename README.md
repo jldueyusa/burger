@@ -10,8 +10,6 @@ Each burger in the waiting area also has a Devour It button. When the user click
 
 Each burger will be stored in a database, whether devoured or not.
 
-### Video
-Click the [here](https://drive.google.com/file/d/1mXCSFNdMcsn-S_p6E5Skeranwl44CxL9/view) to view a quick demo of the app along with a step by step approach to launching the tool through the local host or Heroku.
 
 ## Link
 Click the link below to launch the burger app.
